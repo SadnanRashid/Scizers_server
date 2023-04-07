@@ -10,6 +10,7 @@ const { addTime } = require("../Utils/timestamp");
 // Get all contacts in the collection
 const GetAllContacts = async (req, res) => {
   const contactList = await QueryListOfContacts();
+  console.log("All");
   return res.json(contactList);
 };
 
@@ -47,7 +48,7 @@ const UpdateContact = async (req, res) => {
 // Delete contact
 const DeleteContact = async (req, res) => {
   const deleteResult = await QueryDeleteContact(req.params.id);
-  if (result.deletedCount === 0) {
+  if (deleteResult.deletedCount === 0) {
     return res.status(404).send({ errorCode: 404, message: "not found!" });
   }
   return res.send(deleteResult);
