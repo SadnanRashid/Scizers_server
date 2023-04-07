@@ -12,6 +12,7 @@ const {
 //   req.json({ message: "sadfasf" });
 // });
 
+router.get("/contacts/all", GetAllContacts);
 router.get("/contacts", GetTargetContacts);
 router.post("/contacts", PostContact);
 router.put("/contacts/:id", UpdateContact);
